@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Двигаем созданное</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+        <style type="text/css">
+            .drag {font-size: x-large; border: thin solid black;
+                width: 5em; text-align: center; padding:10px}
+        </style>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                $('input[name="count_grag"]').val('');
+                $('button[name="start"]').on('click', function(){
+
+                    var count = $('input[name="count_grag"]').val(),
+                            div = $('#park') ;
+                    div.empty();
+                    $('.drag').remove();
+                    for(var i=0; i<count; i++){
+                        $('<div  class="ui-widget ui-corner-all ui-state-error drag">Перетащи меня</div>').appendTo(div);
+                    }
+                    $('.drag').draggable();
+                });
+            });
+
+        </script>
+    </head>
+
+    <body>
+        <label>Введите число фишек</label><br/>
+        <input name ="count_grag" type="text"/><br/>
+        <button name ="start">Создать</button> <br/>
+        <div id  = "park"></div>
+    </body>
+</html>
